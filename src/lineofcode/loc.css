@@ -1,0 +1,42 @@
+.LOC {
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+.loc-mono {
+  font-family: "Ubuntu Mono";
+}
+
+.Background {
+  color: #282a36;
+}
+.CurrentLine {
+  color: #44475a;
+}
+.Foreground {
+  color: #f8f8f2;
+}
+.Comment {
+  color: #6272a4;
+}
+.Cyan {
+  color: #8be9fd;
+}
+.Green {
+  color: #50fa7b;
+}
+.Orange {
+  color: #ffb86c;
+}
+.Pink {
+  color: #ff79c6;
+}
+.Purple {
+  color: #bd93f9;
+}
+.Red {
+  color: #ff5555;
+}
+.Yellow {
+  color: #f1fa8c;
+}

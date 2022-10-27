@@ -1,4 +1,14 @@
+import { useState } from "react";
+
 export default function TextEditor(props) {
+  const [clicker, setClicker] = useState(1)
+  const hehehehe = () => {
+    setClicker(clicker + 1)
+    if (clicker===6){
+      alert("Made by Rashed")
+    }
+  }
+
   return (
     <div className="flex px-2 sm:text-sm loc-mono Comment">
       <div className="w-1/5">
@@ -25,7 +35,7 @@ export default function TextEditor(props) {
           <span className="Pink">import</span> pytorch
         </p>
         <p className="Foreground">
-          <span className="Pink">import</span> numpy{" "}
+          <span className="Pink">import</span> <span onClick={hehehehe}>numpy</span>{" "}
           <span className="Pink">as</span> np
         </p>
         <br></br>

@@ -16,6 +16,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/uaecodes" element={<App />} />
           <Route path="/counter" element={<Counter />} />
+          <Route path="/uaecodes/counter" element={<Counter />} />
         </Routes>
       </BrowserRouter>
     </TerminalContextProvider>

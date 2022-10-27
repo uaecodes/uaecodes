@@ -1,0 +1,19 @@
+
+.bg {
+    /* The image used */
+    background-image: url("./background.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .centered {
+    position: absolute; /* or absolute */
+    top: 45%;
+    left: 50%;
+  }

@@ -1,6 +1,7 @@
 // tailwind.config.js
 module.exports = {
     mode: "jit",
+    content: ["./src/**/*.{html,js}"],
     purge: [
       // ...
       'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}', // path to vechaiui

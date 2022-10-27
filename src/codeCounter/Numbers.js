@@ -6,7 +6,7 @@ function Numbers(props) {
   
         <AnimatedNumbers
           animateToNumber={props.count}
-          fontStyle={{ fontSize: 32 }}
+          fontStyle={{ fontSize: 64, fontWeight: "bold", color: "#918f8e" }}
           configs={(number, index) => {
             return { mass: 2, tension: 230 * (index + 1), friction: 140 };
           }}

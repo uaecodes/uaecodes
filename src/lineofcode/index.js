@@ -69,7 +69,6 @@ function LineOfCode() {
         inputMsg={inputMsg}
         handleChange={handleChange}
       />
-
       <div
         style={{ backgroundColor: "#242424" }}
         className="flex-1 h-full flex-grow pl-2 loc-mono sm:text-sm Green"

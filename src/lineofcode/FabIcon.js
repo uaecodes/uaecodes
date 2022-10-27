@@ -1,7 +1,16 @@
 import logo from "./logo.png";
 import { Fab, Action } from "react-tiny-fab";
-import { MdPlayArrow, MdHelp, MdAdd, MdCode } from "react-icons/md";
+import { MdPlayArrow, MdHelp, MdAdd, MdPeople } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
+
 export default function FabIcon(props) {
+  const navigate = useNavigate();
+  const handleOnClick = useCallback(
+    () => navigate("/counter", { replace: true }),
+    [navigate]
+  );
+
   return (
     <>
       <Fab
@@ -28,6 +37,13 @@ export default function FabIcon(props) {
           }
         >
           <MdHelp />
+        </Action>
+        <Action
+          text="Total Coders"
+          style={{ backgroundColor: "gray", width: 35, height: 35 }}
+          onClick={handleOnClick}
+        >
+          <MdPeople />
         </Action>
       </Fab>
 

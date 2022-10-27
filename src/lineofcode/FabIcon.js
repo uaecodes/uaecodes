@@ -39,7 +39,7 @@ export default function FabIcon(props) {
           <MdHelp />
         </Action>
         <Action
-          text="Total Coders"
+          text="Coders"
           style={{ backgroundColor: "gray", width: 35, height: 35 }}
           onClick={handleOnClick}
         >

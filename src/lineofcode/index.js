@@ -16,43 +16,54 @@ function LineOfCode() {
     ">> " + "Type your script above and click the green play button",
   ]);
   const [message, setMessage] = useState("");
+  const [inputMsg, setInputMessage] = useState("");
+  const [placeholder, setPlaceholder] = useState("Please type your code here...")
 
   const coded = Buffer.from([69, 83, 82, 65]);
 
   const handleChange = (event) => {
-    setMessage(event.target.value);
+    setInputMessage(event.target.value);
   };
 
   // when green button is clicked
   const sendCode = () => {
-    if (message==="") {
-      alert("You need to type a message in the code where it says print(")
-      return
+    if (inputMsg === "") {
+      alert("You need to type a message in the code where it says print(");
+      return;
     }
-    setCodeConsole([">> " + message, ">> Congratulations you have typed your first line of code", ">> Please use the link above the play button to continue your coding journey"])
+    setPlaceholder("Submitted...")
+    setMessage(inputMsg);
+    const savedMsg = inputMsg;
+    setInputMessage("");
+    setCodeConsole([
+      ">> " + savedMsg,
+      ">> Congratulations you have typed your first line of code",
+      ">> Please use the link in the '+' to continue your coding journey",
+      ">> For more information about coding please click the '+' icon ",
+    ]);
     axios({
       method: "POST",
       url: process.env.REACT_APP_API,
       headers: {
-        Authorization: "Token "+ process.env.REACT_APP_BACKEND_TOKEN,
-        "Content-Type": "application/json"
+        Authorization: "Token " + process.env.REACT_APP_BACKEND_TOKEN,
+        "Content-Type": "application/json",
       },
       data: {
-        "code": message
-      }
-    })
-  }
-
-  console.log(process.env.REACT_APP_BACKEND_TOKEN)
+        code: savedMsg,
+      },
+    });
+  };
 
   const canvWidth = window.innerWidth - 20;
 
   return (
     <div className="LOC flex flex-col h-screen">
-      <FabIcon sendCode={sendCode}/>
+      <FabIcon sendCode={sendCode} />
 
       <Header />
-      <TextEditor handleChange={handleChange}/>
+      <TextEditor placeholder={placeholder} inputMsg={inputMsg} handleChange={handleChange} />
+
+
       <div
         style={{ backgroundColor: "#242424" }}
         className="flex-1 h-full flex-grow pl-2 loc-mono sm:text-sm Green"
@@ -61,7 +72,7 @@ function LineOfCode() {
           <MatrixCard
             id={"my-id-1"}
             matrixText={"UAE CODES" + coded.toString()}
-            canvasSize={{ width: canvWidth, height: "300" }}
+            canvasSize={{ width: canvWidth, height: 300 }}
             delay={40}
             backgroundColor={"rgba(42, 40, 45, 0.2)"}
             textFontSize={"16"}
@@ -74,7 +85,7 @@ function LineOfCode() {
               "#C0C0C0",
             ]}
             styleOverrideForChildrenDiv={{
-              "background-color": "transparent",
+              "backgroundColor": "transparent",
               top: "0px",
               margin: "0px",
               padding: "0px",

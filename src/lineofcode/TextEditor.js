@@ -1,12 +1,12 @@
 export default function TextEditor(props) {
   return (
-    <div class="flex px-2 sm:text-sm loc-mono Comment">
-      <div class="w-1/5">
+    <div className="flex px-2 sm:text-sm loc-mono Comment">
+      <div className="w-1/5">
         {Array.from(Array(25), (e, i) => {
-          return <p>{i + 1}</p>;
+          return <p key={i}>{i + 1}</p>;
         })}
       </div>
-      <div class="Comment w-4/5 font-thin pl-2">
+      <div className="Comment w-4/5 font-thin pl-2">
         <p># Welcome to the uae national day for programmers </p>
         <p>
           # in this software program we will show you how easy it is to write
@@ -54,10 +54,11 @@ export default function TextEditor(props) {
           <input
             type="text"
             id="small-input"
-            placeholder="Type your code here..."
+            placeholder={props.placeholder}
             onChange={props.handleChange}
             maxLength="100"
-            class=" Yellow bg-gray-900 flex-1 rounded-lg border border-gray-900 sm:text-xs focus:ring-blue-500 focus:border-blue-500 "
+            className=" Yellow bg-gray-900 flex-1 rounded-lg border border-gray-900 sm:text-xs focus:ring-blue-500 focus:border-blue-500 "
+            value={props.inputMsg}
           />
           <div>
             <span className="Yellow">"</span>

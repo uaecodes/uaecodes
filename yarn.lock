@@ -8597,6 +8597,14 @@ raw-body@2.5.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-animated-numbers@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/react-animated-numbers/-/react-animated-numbers-0.14.0.tgz#cd47241c9e702b8eca3a322630eefe1a178f578c"
+  integrity sha512-POZmr9VRy5sxu6P3A2FmePCa6KoiOZbVPNp/ZzJdqClndSoZcU9V0Q5yg3MT3GzKE4B7oYE+riEU6ejBa28yzQ==
+  dependencies:
+    react-intersection-observer "^8.33.1"
+    react-spring "^9.4.5"
+
 react-app-polyfill@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/react-app-polyfill/-/react-app-polyfill-3.0.0.tgz"
@@ -8672,6 +8680,11 @@ react-indiana-drag-scroll@^2.2.0:
     classnames "^2.2.6"
     debounce "^1.2.0"
     easy-bem "^1.1.1"
+
+react-intersection-observer@^8.33.1:
+  version "8.34.0"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.34.0.tgz#6f6e67831c52e6233f6b6cc7eb55814820137c42"
+  integrity sha512-TYKh52Zc0Uptp5/b4N91XydfSGKubEhgZRtcg1rhTKABXijc4Sdr1uTp5lJ8TN27jwUsdXxjHXtHa0kPj704sw==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -8763,7 +8776,7 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-spring@^9.2.3:
+react-spring@^9.2.3, react-spring@^9.4.5:
   version "9.5.5"
   resolved "https://registry.npmjs.org/react-spring/-/react-spring-9.5.5.tgz"
   integrity sha512-vMGVd2yjgxWcRCzoLn9AD1d24+WpunHBRg5DoehcRdiBocaOH6qgle0xN9C5LPplXfv4yIpS5QWGN5MKrWxSZg==

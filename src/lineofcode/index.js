@@ -17,7 +17,9 @@ function LineOfCode() {
   ]);
   const [message, setMessage] = useState("");
   const [inputMsg, setInputMessage] = useState("");
-  const [placeholder, setPlaceholder] = useState("Please type your code here...")
+  const [placeholder, setPlaceholder] = useState(
+    "Please type your code here..."
+  );
 
   const coded = Buffer.from([69, 83, 82, 65]);
 
@@ -31,7 +33,7 @@ function LineOfCode() {
       alert("You need to type a message in the code where it says print(");
       return;
     }
-    setPlaceholder("Submitted...")
+    setPlaceholder("Submitted...");
     setMessage(inputMsg);
     const savedMsg = inputMsg;
     setInputMessage("");
@@ -41,6 +43,7 @@ function LineOfCode() {
       ">> Please use the link in the '+' to continue your coding journey",
       ">> For more information about coding please click the '+' icon ",
     ]);
+    // send code
     axios({
       method: "POST",
       url: process.env.REACT_APP_API,
@@ -61,8 +64,11 @@ function LineOfCode() {
       <FabIcon sendCode={sendCode} />
 
       <Header />
-      <TextEditor placeholder={placeholder} inputMsg={inputMsg} handleChange={handleChange} />
-
+      <TextEditor
+        placeholder={placeholder}
+        inputMsg={inputMsg}
+        handleChange={handleChange}
+      />
 
       <div
         style={{ backgroundColor: "#242424" }}
@@ -85,7 +91,7 @@ function LineOfCode() {
               "#C0C0C0",
             ]}
             styleOverrideForChildrenDiv={{
-              "backgroundColor": "transparent",
+              backgroundColor: "transparent",
               top: "0px",
               margin: "0px",
               padding: "0px",

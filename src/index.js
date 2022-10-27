@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { TerminalContextProvider } from "react-terminal";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Counter from "./codeCounter";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/uaecodes" element={<App />} />
+          <Route path="/counter" element={<Counter />} />
         </Routes>
       </BrowserRouter>
     </TerminalContextProvider>

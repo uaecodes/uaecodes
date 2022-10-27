@@ -1,12 +1,8 @@
-import './App.css';
-import LineOfCode from './lineofcode/index.js';
+import "./App.css";
+import LineOfCode from "./lineofcode/index.js";
 
 function App() {
-  return (
-    
-    <LineOfCode/>
-    
-  );
+  return <LineOfCode />;
 }
 
 export default App;

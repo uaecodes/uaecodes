@@ -17,4 +17,22 @@ function getCount() {
   return data;
 }
 
-export {getCount }
+
+function getCodes() {
+
+  const response = axios.get(
+    process.env.REACT_APP_API.replace('361', '363'),
+    {
+      params: { size: 100 },
+      headers: {
+        Authorization: "Token " + process.env.REACT_APP_BACKEND_TOKEN,
+      },
+    }
+  );
+
+  const data = response.then((response) => response.data).catch(err => console.log(err));
+
+  return data;
+}
+
+export {getCount, getCodes }

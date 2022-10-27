@@ -3,7 +3,7 @@ import logo from "../uaecodes.png";
 import Numbers from "./Numbers";
 import "./counter.css";
 import CoolLooking from "./CoolLooking";
-import Typewriter from "typewriter-effect";
+import Typer from "./Typer";
 
 export default function Counter() {
   return (
@@ -19,14 +19,7 @@ export default function Counter() {
       </div>
 
       <div className="text-center typewriter">
-        <Typewriter
-          options={{
-            strings: [">> Total number of people submitted"],
-            justifyContent: "center",
-            autoStart: true,
-            loop: true,
-          }}
-        />
+        <Typer />
       </div>
     </div>
   );

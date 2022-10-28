@@ -35,4 +35,25 @@ function getCodes() {
   return data;
 }
 
-export {getCount, getCodes }
+function postForm(name, email, nationality) {
+
+  const response = axios.post(
+    process.env.REACT_APP_API.replace('361', '364'),
+       {
+        "Name": name,
+        "Email": email,
+        "Nationality": nationality,
+    },
+    {
+      headers: {
+        Authorization: "Token " + process.env.REACT_APP_BACKEND_TOKEN,
+      },
+    }
+  );
+
+  const data = response.then((response) => response.data).catch(err => console.log(err));
+
+  return data;
+}
+
+export {getCount, getCodes, postForm }

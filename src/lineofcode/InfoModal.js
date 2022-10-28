@@ -1,5 +1,6 @@
-import { Button, Modal } from "flowbite-react";
-import React from "react";
+import { Button, Label, Modal, TextInput } from "flowbite-react";
+import React, { useState } from "react";
+import { postForm } from "../codeCounter/api";
 
 export default function InfoModal(props) {
   return (
@@ -31,7 +32,7 @@ export function LearnModal(props) {
   return (
     <>
       <React.Fragment>
-        <Modal show={props.showLearn} size="sm" onClose={props.onCloseLearn}>
+        <Modal show={props.showLearn} size="sm" onClose={props.onClose}>
           <Modal.Header>Learn Programming</Modal.Header>
           <Modal.Body>
             <div className="">
@@ -57,7 +58,7 @@ export function LearnModal(props) {
                 to start your coding journey
               </p>
 
-<br></br>
+              <br></br>
 
               <p className="mb-4 font-normal text-sm text-gray-700 dark:text-gray-400">
                 &gt;{" "}
@@ -82,16 +83,13 @@ export function LearnModal(props) {
               </p>
               <p className="mb-4 font-normal text-sm text-gray-700 dark:text-gray-400">
                 &gt;{" "}
-                <a
-                  className="text-blue-500"
-                  href="https://www.codecademy.com/"
-                >
+                <a className="text-blue-500" href="https://www.codecademy.com/">
                   CodeCademy
                 </a>{" "}
                 | Where you can learn by building projects
               </p>
               <div className="flex justify-center gap-4">
-                <Button color="gray" onClick={props.onCloseLearn}>
+                <Button color="gray" onClick={props.onClose}>
                   Close
                 </Button>
               </div>
@@ -100,5 +98,94 @@ export function LearnModal(props) {
         </Modal>
       </React.Fragment>
     </>
+  );
+}
+
+export function FormModal(props) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [nationality, setNationality] = useState("");
+  const [hasSubmit, setHasSubmit] = useState(false);
+
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
+  const handleNationality = (event) => {
+    setNationality(event.target.value);
+  };
+  const handleSubmit = () => {
+    if (!hasSubmit && name !== "" && email !== "" && nationality !== "")
+      {postForm(name, email, nationality);
+    setHasSubmit(true);
+    props.onClose();
+    alert("Your certificate has been sent!");}
+     else {
+        alert("Your certificate has been downloaded already")
+     }
+  };
+
+  return (
+    <React.Fragment>
+      <Modal
+        show={props.showForm}
+        size="md"
+        popup={true}
+        onClose={props.onClose}
+      >
+        <Modal.Header />
+        <Modal.Body>
+          <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
+            <h3 className="text-xl mb-4 font-medium text-gray-900 dark:text-white">
+              Get your Certificate
+            </h3>
+            <div className="mb-4">
+              <div className="mb-2 block">
+                <Label htmlFor="name" value="Your Name" />
+              </div>
+              <TextInput
+                id="name"
+                placeholder="Full Name"
+                required={true}
+                type="text"
+                onChange={handleName}
+                value={name}
+              />
+            </div>
+            <div className="mb-4">
+              <div className="mb-2 block">
+                <Label htmlFor="email" value="Your Email" />
+              </div>
+              <TextInput
+                id="email"
+                type="email"
+                placeholder="email@email.com"
+                required={true}
+                onChange={handleEmail}
+                value={email}
+              />
+            </div>
+            <div className="mb-4">
+              <div className="mb-2 block">
+                <Label htmlFor="nationality" value="Your Nationality" />
+              </div>
+              <TextInput
+                id="nationality"
+                placeholder="UAE"
+                type="text"
+                required={true}
+                onChange={handleNationality}
+                value={nationality}
+              />
+            </div>
+            <div className="w-full">
+              <Button onClick={handleSubmit} type="submit">Download Your Certificate</Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
+    </React.Fragment>
   );
 }

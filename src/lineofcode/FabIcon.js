@@ -35,6 +35,13 @@ export default function FabIcon(props) {
           <MdPeople />
         </Action>
         <Action
+          text="Certificate"
+          style={{ backgroundColor: "gray", width: 35, height: 35 }}
+          onClick={props.onOpenForm}
+        >
+          <MdOutlineCode />
+        </Action>
+        <Action
           text="Learn"
           style={{ backgroundColor: "gray", width: 35, height: 35 }}
           onClick={props.onOpenLearn}

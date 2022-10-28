@@ -9,7 +9,7 @@ import MatrixCard from "matrix-card";
 import { Buffer } from "buffer";
 import FabIcon from "./FabIcon";
 import axios from "axios";
-import InfoModal, { LearnModal } from "./InfoModal";
+import InfoModal, { FormModal, LearnModal } from "./InfoModal";
 
 function LineOfCode() {
   const [codeConsole, setCodeConsole] = useState([
@@ -24,6 +24,7 @@ function LineOfCode() {
   const [hasSent, setHasSent] = useState(false);
   const [show, setShow] = useState(false);
   const [showLearn, setShowLearn] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const coded = Buffer.from([69, 83, 82, 65]);
 
@@ -35,13 +36,16 @@ function LineOfCode() {
     setShowLearn(true);
   }
 
-  function onClose() {
-    setShow(false);
+  function onOpenForm() {
+    setShowForm(true);
   }
 
-  function onCloseLearn() {
+  function onClose() {
+    setShow(false);
     setShowLearn(false);
+    setShowForm(false);
   }
+
 
   const handleChange = (event) => {
     setInputMessage(event.target.value);
@@ -84,11 +88,12 @@ function LineOfCode() {
 
   return (
     <div className="LOC flex flex-col h-screen">
-      <FabIcon onHelp={onHelp} onOpenLearn={onOpenLearn} sendCode={sendCode} />
+      <FabIcon onHelp={onHelp} onOpenLearn={onOpenLearn} onOpenForm={onOpenForm} sendCode={sendCode} />
 
       {/* modals */}
       <InfoModal show={show} onClose={onClose} />
-      <LearnModal showLearn={showLearn} onCloseLearn={onCloseLearn} />
+      <LearnModal showLearn={showLearn} onClose={onClose} />
+      <FormModal showForm={showForm} onClose={onClose} />
 
       <Header />
       <TextEditor

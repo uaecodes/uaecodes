@@ -17,8 +17,13 @@ export default function Counter() {
       <div className="centered ">
         <Numbers />
       </div>
+      <div className="info light">
+        <p>عدد المبرمجين</p>
+        <p style={{color: "black"}}>Number of coders  </p>
+      </div>
 
       <div className="text-center typewriter">
+        <p className="light">Everyone can code</p>
         <Typer />
       </div>
     </div>

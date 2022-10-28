@@ -21,7 +21,7 @@ function Numbers(props) {
   
         <AnimatedNumbers
           animateToNumber={count}
-          fontStyle={{ fontSize: 64, fontFamily: 'Sans-serif', fontWeight: "thin", color: "#918f8e" }}
+          fontStyle={{ fontSize: 64, fontFamily: 'Sans-serif'}}
           configs={(number, index) => {
             return { mass: 2, tension: 230 * (index + 1), friction: 140 };
           }}

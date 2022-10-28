@@ -51,13 +51,6 @@ export default function FabIcon(props) {
         >
           <MdOutlineCode />
         </Action>
-        <Action
-          text="Help"
-          style={{ backgroundColor: "gray", width: 35, height: 35 }}
-          onClick={props.onHelp}
-        >
-          <MdHelp />
-        </Action>
 
         <Action
           text="Share"

@@ -30,11 +30,7 @@ export default function FabIcon(props) {
         <Action
           text="Help"
           style={{ backgroundColor: "gray", width: 35, height: 35 }}
-          onClick={() =>
-            alert(
-              "Type any words to see them displayed in the console, this is called a print statement"
-            )
-          }
+          onClick={props.onHelp}
         >
           <MdHelp />
         </Action>

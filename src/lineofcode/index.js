@@ -9,6 +9,7 @@ import MatrixCard from "matrix-card";
 import { Buffer } from "buffer";
 import FabIcon from "./FabIcon";
 import axios from "axios";
+import InfoModal from "./InfoModal";
 
 function LineOfCode() {
   const [codeConsole, setCodeConsole] = useState([
@@ -21,8 +22,18 @@ function LineOfCode() {
     "Please type your code here..."
   );
   const [hasSent, setHasSent] = useState(false);
+  const [show, setShow] = useState(false);
 
   const coded = Buffer.from([69, 83, 82, 65]);
+
+
+  function onHelp() {
+    setShow(true);
+  }
+
+  function onClose() {
+    setShow(false);
+  }
 
   const handleChange = (event) => {
     setInputMessage(event.target.value);
@@ -65,8 +76,9 @@ function LineOfCode() {
 
   return (
     <div className="LOC flex flex-col h-screen">
-      <FabIcon sendCode={sendCode} />
-
+      <FabIcon onHelp={onHelp} sendCode={sendCode} />
+      <InfoModal  show={show} onClose={onClose} />
+    
       <Header />
       <TextEditor
         placeholder={placeholder}

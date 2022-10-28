@@ -121,7 +121,7 @@ export function FormModal(props) {
     if (hasSubmit ){
       alert("your certificate has been downloaded already!")}
     else if(name == "" || email == "" || nationality == ""){
-      alert("Enter all fields to generate your certificate")}
+      alert("complete the form to generate your certificate")}
     else{
       certGen("en",name,""); //Generate Certificate and Download it 
       postForm(name, email, nationality); // There is an issue with this line (cehck console)
@@ -168,6 +168,7 @@ export function FormModal(props) {
                 required={true}
                 onChange={handleEmail}
                 value={email}
+                
               />
             </div>
             <div className="mb-4">

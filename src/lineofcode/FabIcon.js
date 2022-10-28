@@ -1,8 +1,11 @@
 import logo from "./logo.png";
 import { Fab, Action } from "react-tiny-fab";
-import { MdPlayArrow, MdHelp, MdAdd, MdPeople, MdOutlineCode } from "react-icons/md";
+import { MdPlayArrow, MdHelp, MdAdd, MdPeople, MdOutlineCode, MdShare,TiSocialTwitter ,MdOutlineAssignmentTurnedIn} from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
+
+import { FacebookShareButton, TwitterShareButton } from "react-share";
+import { FacebookIcon, TwitterIcon } from "react-share";
 
 export default function FabIcon(props) {
   const navigate = useNavigate();
@@ -39,7 +42,7 @@ export default function FabIcon(props) {
           style={{ backgroundColor: "gray", width: 35, height: 35 }}
           onClick={props.onOpenForm}
         >
-          <MdOutlineCode />
+          <MdOutlineAssignmentTurnedIn />
         </Action>
         <Action
           text="Learn"
@@ -54,6 +57,18 @@ export default function FabIcon(props) {
           onClick={props.onHelp}
         >
           <MdHelp />
+        </Action>
+
+        <Action
+          text="Share"
+          style={{ backgroundColor: "white", width: 35, height: 35 }}
+        >
+          <TwitterShareButton
+            title={"كتبت أول سطر برمجة ! "+"\n"+"#الإمارات_تبرمج"+"\n"+"I wrote my first line of code !"+"\n"+"#uae_codes"+"\n\n"}
+            url={"https://ai.gov.ae/uaecodes/"}
+          >
+            <TwitterIcon size={33} round />
+          </TwitterShareButton>
         </Action>
       </Fab>
 

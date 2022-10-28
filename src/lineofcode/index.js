@@ -20,6 +20,7 @@ function LineOfCode() {
   const [placeholder, setPlaceholder] = useState(
     "Please type your code here..."
   );
+  const [hasSent, setHasSent] = useState(false);
 
   const coded = Buffer.from([69, 83, 82, 65]);
 
@@ -44,17 +45,20 @@ function LineOfCode() {
       ">> For more information about coding please click the '+' icon ",
     ]);
     // send code
-    axios({
-      method: "POST",
-      url: process.env.REACT_APP_API,
-      headers: {
-        Authorization: "Token " + process.env.REACT_APP_BACKEND_TOKEN,
-        "Content-Type": "application/json",
-      },
-      data: {
-        code: savedMsg,
-      },
-    });
+    if (!hasSent) {
+      axios({
+        method: "POST",
+        url: process.env.REACT_APP_API,
+        headers: {
+          Authorization: "Token " + process.env.REACT_APP_BACKEND_TOKEN,
+          "Content-Type": "application/json",
+        },
+        data: {
+          code: savedMsg,
+        },
+      });
+      setHasSent(true);
+    }
   };
 
   const canvWidth = window.innerWidth - 20;

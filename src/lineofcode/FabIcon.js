@@ -1,6 +1,6 @@
 import logo from "./logo.png";
 import { Fab, Action } from "react-tiny-fab";
-import { MdPlayArrow, MdHelp, MdAdd, MdPeople } from "react-icons/md";
+import { MdPlayArrow, MdHelp, MdAdd, MdPeople, MdOutlineCode } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
@@ -28,18 +28,25 @@ export default function FabIcon(props) {
           <img src={logo} style={{ width: 20 }}></img>
         </Action>
         <Action
-          text="Help"
-          style={{ backgroundColor: "gray", width: 35, height: 35 }}
-          onClick={props.onHelp}
-        >
-          <MdHelp />
-        </Action>
-        <Action
           text="Coders"
           style={{ backgroundColor: "gray", width: 35, height: 35 }}
           onClick={handleOnClick}
         >
           <MdPeople />
+        </Action>
+        <Action
+          text="Learn"
+          style={{ backgroundColor: "gray", width: 35, height: 35 }}
+          onClick={props.onOpenLearn}
+        >
+          <MdOutlineCode />
+        </Action>
+        <Action
+          text="Help"
+          style={{ backgroundColor: "gray", width: 35, height: 35 }}
+          onClick={props.onHelp}
+        >
+          <MdHelp />
         </Action>
       </Fab>
 

@@ -9,7 +9,7 @@ import MatrixCard from "matrix-card";
 import { Buffer } from "buffer";
 import FabIcon from "./FabIcon";
 import axios from "axios";
-import InfoModal from "./InfoModal";
+import InfoModal, { LearnModal } from "./InfoModal";
 
 function LineOfCode() {
   const [codeConsole, setCodeConsole] = useState([
@@ -23,16 +23,24 @@ function LineOfCode() {
   );
   const [hasSent, setHasSent] = useState(false);
   const [show, setShow] = useState(false);
+  const [showLearn, setShowLearn] = useState(false);
 
   const coded = Buffer.from([69, 83, 82, 65]);
-
 
   function onHelp() {
     setShow(true);
   }
 
+  function onOpenLearn() {
+    setShowLearn(true);
+  }
+
   function onClose() {
     setShow(false);
+  }
+
+  function onCloseLearn() {
+    setShowLearn(false);
   }
 
   const handleChange = (event) => {
@@ -76,9 +84,12 @@ function LineOfCode() {
 
   return (
     <div className="LOC flex flex-col h-screen">
-      <FabIcon onHelp={onHelp} sendCode={sendCode} />
-      <InfoModal  show={show} onClose={onClose} />
-    
+      <FabIcon onHelp={onHelp} onOpenLearn={onOpenLearn} sendCode={sendCode} />
+
+      {/* modals */}
+      <InfoModal show={show} onClose={onClose} />
+      <LearnModal showLearn={showLearn} onCloseLearn={onCloseLearn} />
+
       <Header />
       <TextEditor
         placeholder={placeholder}
@@ -119,8 +130,7 @@ function LineOfCode() {
                 options={{
                   strings: codeConsole,
                   autoStart: true,
-                }}
-              />
+                }}/>
             </div>
           </MatrixCard>
         </div>

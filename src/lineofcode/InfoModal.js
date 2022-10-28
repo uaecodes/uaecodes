@@ -1,6 +1,7 @@
 import { Button, Label, Modal, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { postForm } from "../codeCounter/api";
+import { certGen } from "./certGen";
 
 export default function InfoModal(props) {
   return (
@@ -117,14 +118,16 @@ export function FormModal(props) {
     setNationality(event.target.value);
   };
   const handleSubmit = () => {
-    if (!hasSubmit && name !== "" && email !== "" && nationality !== "")
-      {postForm(name, email, nationality);
-    setHasSubmit(true);
-    props.onClose();
-    alert("Your certificate has been sent!");}
-     else {
-        alert("Your certificate has been downloaded already")
-     }
+    if (hasSubmit ){
+      alert("your certificate has been downloaded already!")}
+    else if(name == "" || email == "" || nationality == ""){
+      alert("Enter all fields to generate your certificate")}
+    else{
+      certGen("en",name,""); //Generate Certificate and Download it 
+      postForm(name, email, nationality); // There is an issue with this line (cehck console)
+      setHasSubmit(true);
+      props.onClose();
+      alert("Your certificate has been sent!");}
   };
 
   return (
